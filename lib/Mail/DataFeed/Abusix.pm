@@ -1,4 +1,5 @@
 package Mail::DataFeed::Abusix;
+use Moo;
 use v5.20;
 use strict;
 use warnings;
@@ -9,7 +10,6 @@ no warnings qw(experimental::postderef);
 use Digest::MD5 qw(md5_hex);
 use IO::Socket;
 
-use Moo;
   has feed_name => ( is => 'ro', required => 1 );
   has feed_key => ( is => 'ro', required => 1);
   has feed_dest => ( is => 'ro', required => 1);
