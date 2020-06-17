@@ -1,6 +1,8 @@
 Revision history for Mail-DataFeed-Abusix
 
 {{$NEXT}}
+
+1.20200617.1 2020-06-17 23:01:27+00:00 UTC
   - Allow time to be passed in
 
 1.20200331.1 2020-03-31 03:20:53+00:00 UTC
