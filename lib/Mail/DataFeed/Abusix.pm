@@ -24,6 +24,7 @@ use IO::Socket;
   has used_tls => ( is => 'rw', default => undef );
   has used_auth => ( is => 'rw', default => undef );
   has mail_from_domain => ( is => 'rw' );
+  has time => ( is => 'rw', lazy => 1, builder => '_build_time' );
 
 =head1 DESCRIPTION
 
@@ -134,10 +135,15 @@ sub send {
 
 }
 
+sub _build_time {
+  my ($self) = @_;
+  return time;
+}
+
 sub _build_report {
   my ($self,$args) = @_;
 
-  my $time = $args->{_time} // time(); # Ability to override time for testing!
+  my $time = $args->{_time} // $self->time; # Ability to override time for testing!
   my $extended_json = ''; # Reserved for future use, should be empty.
 
   my $packet = join( "\n",
